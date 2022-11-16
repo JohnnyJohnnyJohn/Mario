@@ -4,9 +4,9 @@ body, html {
   overflow: hidden;
 }
 
-/* #perso{
+#perso{
   position:absolute;
-} */
+}
 
 #piece{
   position:absolute;
