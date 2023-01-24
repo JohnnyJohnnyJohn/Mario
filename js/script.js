@@ -1,3 +1,7 @@
+window.onload = function() {
+    document.body.focus();
+}
+
 // Init Mario
 
 let mario = document.getElementById("perso");
@@ -180,36 +184,49 @@ function newGame(){
 
 
 document.addEventListener("keydown", function(event) {
+    
     if(event.key == " " && !game){
+
         audioGameover.pause();
         audioGameover.currentTime = 0;
         newGame();
+
     }
     
     if (event.key == "ArrowLeft" && game){
+
         xMario = xMario<0 ? (xMario + innerWidth - 20) % innerWidth : (xMario - 20) % innerWidth;
         moveImgTo("perso", xMario, yMario);
         testCollisionCoin();
+
         if (!marioFlip){
             mario.style.transform = "scaleX(-1)";
             marioFlip = !marioFlip;
         }
+
     } else if (event.key == "ArrowUp" && game){
+
         yMario = yMario<0 ? (yMario + innerHeight - 20) % innerHeight : (yMario - 20) % innerHeight;
         moveImgTo("perso", xMario, yMario);
         testCollisionCoin();
+
     } else if (event.key == "ArrowRight" && game){
+
         xMario = (xMario + 20) % innerWidth;
         moveImgTo("perso", xMario, yMario);
         testCollisionCoin();
+
         if (marioFlip){
             mario.style.transform = "scaleX(1)";
             marioFlip = !marioFlip;
         }
+
     } else if (event.key == "ArrowDown" && game){
+
         yMario = (yMario + 20) % innerHeight;
         moveImgTo("perso", xMario, yMario);
         testCollisionCoin();
+
     }
 });
 
